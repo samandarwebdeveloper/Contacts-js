@@ -54,7 +54,7 @@ var renderContactsList = function () {
       "contact__phone-number",
       contacts[i].number
     );
-    var elDeleteBtn = createElement("button", "btn btn-danger deleted-btn", "x")
+    var elDeleteBtn = createElement("button", "btn btn-danger deleted-btn", "X")
     elDeleteBtn.type = "button";
     elDeleteBtn.value = i;
 
