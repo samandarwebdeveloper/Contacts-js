@@ -20,6 +20,7 @@ var elNewContactRelationshipInput = $_(
   elNewContactForm
 );
 var elContacts = $_(".contacts");
+var elCheckbox = $_(".add-top");
 
 var createContactObject = function (name, surname, number, relationship) {
   return {
@@ -93,7 +94,13 @@ elNewContactForm.addEventListener("submit", function (evt) {
   var number = elNewContactNumberInput.value.trim();
   var relationship = elNewContactRelationshipInput.value.trim();
 
-  contacts.push(createContactObject(name, surname, number, relationship));
+  if (elCheckbox.checked) {
+    contacts.unshift(createContactObject(name, surname, number, relationship));
+  } else {
+    contacts.push(createContactObject(name, surname, number, relationship));
+  }
+  // contacts.push(createContactObject(name, surname, number, relationship));
+  
 
   clearInputFields();
   renderContactsList();
